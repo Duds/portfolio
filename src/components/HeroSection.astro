@@ -4,8 +4,8 @@ import Avatar from './ui/Avatar.astro';
 export interface Props {}
 ---
 <!-- HERO SECTION - Single centred column with avatar above hero copy -->
-<section class="h-[60vh] flex items-center py-section px-6 rounded-b-[6rem] shadow-hero" style="background-color: #D9D8D7;">
-  <div class="max-w-2xl mx-auto w-full flex flex-col items-center justify-center relative z-0">
+<section class="h-[60vh] flex items-center px-6 rounded-b-[6rem] shadow-hero" style="background-color: #D9D8D7; margin-top: 0; padding-top: 0;">
+  <div class="max-w-2xl mx-auto w-full flex flex-col items-center justify-center relative z-0 pt-24">
     <div class="flex flex-col items-center w-full">
       <div class="mb-6"><Avatar size={96} src="/images/DaleRogersAvatar.png" alt="Dale Rogers avatar" /></div>
       <p class="text-3xl md:text-6xl font-extrabold leading-tight text-center" style="color: #262626;">
@@ -22,4 +22,6 @@ export interface Props {}
       </Button>
     </div>
   </div>
+  <!-- Place the marker as the last child of the hero section -->
+  <div id="hero-scroll-marker" style="height: 1px; width: 1px; pointer-events: none;"></div>
 </section> 

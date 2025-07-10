@@ -1,7 +1,7 @@
 ---
 import Button from './ui/Button.astro';
 ---
-<header class="w-full py-8 px-10 flex items-center justify-between relative z-50" style="background-color: #d9d8d7;">
+<header id="site-header" class="w-full py-8 px-10 flex items-center justify-between fixed top-0 left-0 z-50 transition-opacity duration-500" style="background: transparent; width: 100%;">
   <div class="text-base md:text-lg font-sans tracking-tight" style="color: #262626; font-weight: normal;">
     <a id="obf-email" href="#" aria-label="Email Dale Rogers" class="hover:underline focus:underline">
       <span>&#104;&#101;&#108;&#108;&#111;&#64;&#100;&#97;&#108;&#101;&#114;&#111;&#103;&#101;&#114;&#115;&#46;&#99;&#111;&#109;&#46;&#97;&#117;</span>
@@ -74,6 +74,25 @@ import Button from './ui/Button.astro';
           sparkleLayerNav.innerHTML = '';
         }
       });
+    });
+  </script>
+  <script is:inline>
+    // Fade out header after scrolling past the hero
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('site-header');
+      const marker = document.getElementById('hero-scroll-marker');
+      if (!header || !marker) return;
+      const observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            header.classList.remove('opacity-0');
+          } else {
+            header.classList.add('opacity-0');
+          }
+        },
+        { root: null, threshold: 0 }
+      );
+      observer.observe(marker);
     });
   </script>
 </header> 
