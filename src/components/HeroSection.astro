@@ -1,20 +1,20 @@
 ---
-import Guilloche from './Guilloche.astro';
 import Button from './ui/Button.astro';
+import Avatar from './ui/Avatar.astro';
 export interface Props {}
 ---
-<!-- HERO SECTION - Main hero section with text and guilloche pattern -->
-<!-- HERO HEIGHT - Set to h-screen (100vh) to match viewport height exactly -->
-<section class="h-[80vh] flex items-center py-section px-6" style="background-color: #D9D8D7;" >
-  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- TEXT CONTENT - Left half of the hero (50% width on desktop) -->
-    <div class="flex flex-col justify-center relative z-0">
-      <p class="text-4xl md:text-7xl font-extrabold leading-tight text-left" style="color: #262626;">
-        Transform your service. Deliver real impact.
+<!-- HERO SECTION - Single centred column with avatar above hero copy -->
+<section class="h-[60vh] flex items-center py-section px-6 rounded-b-[6rem]" style="background-color: #D9D8D7;">
+  <div class="max-w-2xl mx-auto w-full flex flex-col items-center justify-center relative z-0">
+    <div class="flex flex-col items-center w-full">
+      <div class="mb-6"><Avatar size={96} initials="DR" alt="Dale Rogers avatar placeholder" /></div>
+      <p class="text-4xl md:text-7xl font-extrabold leading-tight text-center" style="color: #262626;">
+        Hi, I'm Dale
       </p>
-      <p class="mt-8 text-xl md:text-2xl font-normal text-left" style="color: #262626;">
-        Partner with a Canberra-based service and strategic designer trusted by government, higher education, and community organisations. Let's create safer, more welcoming services, drive measurable change, and embed continuous improvement—together.
+      <p class="mt-8 text-xl md:text-2xl font-normal text-center" style="color: #262626;">
+        I help organisations design safer, more inclusive services using systems thinking and co-design for real, lasting impact.
       </p>
+      {/* TODO: Introduce A/B testing for the button copy (e.g., "Let’s Work Together" vs. "Start Your Project") */}
       <Button href="/contact" label="Start your project" variant="hero" class="mt-10 w-max rainbow-sparkle-btn" />
     </div>
   </div>
