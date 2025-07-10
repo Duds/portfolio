@@ -96,3 +96,20 @@ import '../styles/global.css'; // ❌ This will cause a build error
 ```
 
 This project follows this convention for all global and shared styles.
+
+---
+
+## 🎨 Theming & Layout Consistency
+
+All layout files (`src/layouts/*.astro`) now use a shared `site-body` class on the `<body>` tag. This class is defined in `src/styles/global.css` and sets the background and text colour to match the brand palette:
+
+```css
+.site-body {
+  background: #F2F2F2;
+  color: #262626;
+}
+```
+
+This replaces previous inline body styles (e.g., `bg-white`, `text-neutral-900`) and ensures consistent theming across all pages. To update the site’s look, simply adjust the `.site-body` class in your global CSS.
+
+---

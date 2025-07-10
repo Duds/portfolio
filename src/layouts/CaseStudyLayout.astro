@@ -15,7 +15,7 @@ const { title, pubDate, tags } = Astro.props;
     {pubDate && <meta name="pubdate" content={pubDate} />}
     {tags && <meta name="keywords" content={tags.join(', ')} />}
   </head>
-  <body class="prose mx-auto">
+  <body class="site-body prose mx-auto">
     <slot />
   </body>
 </html> 

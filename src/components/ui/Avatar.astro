@@ -22,4 +22,7 @@ const { src, alt = '', size = 40, initials = '' } = Astro.props;
     style={`width: ${size}px; height: ${size}px; font-size: ${size / 2.5}px;`}
     aria-label={alt}
   >
+    {initials || '?'}
+  </span>
+)}
  

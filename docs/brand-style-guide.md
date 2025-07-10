@@ -1,5 +1,7 @@
 # Brand Style Guide
 
+> **Note:** All layouts use a shared `site-body` class on the `<body>` tag, defined in `global.css`, to set the background and text colour according to the brand palette. This ensures consistent theming and replaces previous inline body styles.
+
 ## Colour Palette
 
 | Name              | Hex      | Usage                       |
