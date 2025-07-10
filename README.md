@@ -1,0 +1,86 @@
+# Dale Rogers Portfolio — Simplified Astro Build
+
+This is a minimal, content-first personal portfolio built with [Astro](https://astro.build), using a clear directory structure and minimal dependencies. It prioritises simplicity, hardcoded content, and extensibility over framework abstraction.
+
+---
+
+## 🚧 Getting Started
+
+```sh
+npm install
+npm run dev
+````
+
+Local site will be available at [http://localhost:4321](http://localhost:4321)
+
+---
+
+## 📁 Project Structure
+
+```
+dale-rogers-portfolio-simplified/
+├── public/                # Static assets (icons, images, etc.)
+├── src/
+│   ├── pages/             # Astro pages (routed automatically)
+│   │   ├── index.astro
+│   │   ├── about.astro
+│   │   ├── contact.astro
+│   │   └── ...
+│   ├── components/        # Reusable UI components
+│   ├── styles/            # Global and layer-based styles
+│   └── data/              # Site metadata, if needed
+├── tailwind.config.ts     # Optional Tailwind configuration
+├── astro.config.mjs       # Astro project config
+├── package.json
+└── README.md
+```
+
+---
+
+## 📦 Commands
+
+| Command           | Description                          |
+| ----------------- | ------------------------------------ |
+| `npm install`     | Install dependencies                 |
+| `npm run dev`     | Start local dev server               |
+| `npm run build`   | Build the site for production        |
+| `npm run preview` | Preview built site before deployment |
+
+---
+
+## 🎯 Project Principles
+
+* **Minimal by default** – No unnecessary libraries or abstractions.
+* **Hardcoded when simpler** – Use `.astro` files directly unless logic justifies abstraction.
+* **Extensible when needed** – Structure supports future growth without rewrites.
+* **Content-first** – Prioritise writing and layout over interactivity or automation.
+
+---
+
+## 📚 Learn More
+
+* [Astro Documentation](https://docs.astro.build)
+* [Cursor Rules (internal)](./.cursor/rules/) — development guidelines and project rules
+
+---
+
+## ⚠️ Astro CSS Import Limitation
+
+Astro does **not** support importing CSS files directly in the frontmatter (the `--- ... ---` block) of `.astro` files. To include global styles, always use a `<link rel="stylesheet" href="/styles/global.css" />` tag in your `<head>`, or import CSS in your main entry points (e.g., `src/pages/_app.astro` if using one).
+
+**Incorrect:**
+```js
+---
+import '../styles/global.css'; // ❌ This will cause a build error
+---
+```
+
+**Correct:**
+```html
+<head>
+  ...
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+```
+
+This project follows this convention for all global and shared styles.

@@ -1,0 +1,58 @@
+---
+export interface Props {
+  href?: string;
+  label: string;
+  variant?: 'primary' | 'secondary' | 'hero';
+  class?: string;
+}
+
+const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`
+    ${variant === 'primary' ? 'bg-[#262626] text-[#f2f2f2]' : ''}
+    ${variant === 'secondary' ? 'bg-[#d9d8d7] glass border-2 border-[#262626] text-[#262626] shadow-sm' : ''}
+    ${variant === 'hero' ? 'bg-[#262626] text-[#f2f2f2] rainbow-shadow-btn font-semibold text-lg' : ''}
+    rounded-full px-6 py-2 transition-colors duration-200 inline-block
+    ${extraClass}
+  `.replace(/\s+/g, ' ').trim()}
+>
+  {variant === 'hero' && (
+    <Fragment>
+      <span class="rainbow-sparkle-layer" style="position:absolute;left:8px;right:8px;bottom:-12px;height:32px;width:auto;z-index:-1;pointer-events:none;display:block;"></span>
+      <script is:inline>
+        const btn = document.currentScript.parentElement;
+        const sparkleLayer = btn.querySelector('.rainbow-sparkle-layer');
+        function randomSparkles() {
+          if (!sparkleLayer) return;
+          sparkleLayer.innerHTML = '';
+          const count = 4 + Math.floor(Math.random() * 3);
+          for (let i = 0; i < count; i++) {
+            const size = 3 + Math.random() * 5;
+            const left = Math.random() * 100;
+            const delay = Math.random() * 1.5;
+            const sparkle = document.createElement('span');
+            sparkle.style.position = 'absolute';
+            sparkle.style.left = `${left}%`;
+            sparkle.style.bottom = `${2 + Math.random() * 6}px`;
+            sparkle.style.width = `${size}px`;
+            sparkle.style.height = `${size}px`;
+            sparkle.style.borderRadius = '50%';
+            sparkle.style.background = 'rgba(255,255,255,0.7)';
+            sparkle.style.boxShadow = '0 0 8px 2px #fff, 0 0 24px 8px #fff';
+            sparkle.style.opacity = '0';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.animation = `sparkle-fade 2.5s ${delay}s linear forwards`;
+            sparkleLayer.appendChild(sparkle);
+          }
+        }
+        randomSparkles();
+        setInterval(randomSparkles, 3000);
+      </script>
+    </Fragment>
+  )}
+  {label}
+  <slot />
+</a>

@@ -1,0 +1,21 @@
+---
+import Guilloche from './Guilloche.astro';
+import Button from './ui/Button.astro';
+export interface Props {}
+---
+<!-- HERO SECTION - Main hero section with text and guilloche pattern -->
+<!-- HERO HEIGHT - Set to h-screen (100vh) to match viewport height exactly -->
+<section class="h-[80vh] flex items-center py-section px-6" style="background-color: #D9D8D7;" >
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- TEXT CONTENT - Left half of the hero (50% width on desktop) -->
+    <div class="flex flex-col justify-center relative z-0">
+      <p class="text-4xl md:text-7xl font-extrabold leading-tight text-left" style="color: #262626;">
+        Transform your service. Deliver real impact.
+      </p>
+      <p class="mt-8 text-xl md:text-2xl font-normal text-left" style="color: #262626;">
+        Partner with a Canberra-based service and strategic designer trusted by government, higher education, and community organisations. Let's create safer, more welcoming services, drive measurable change, and embed continuous improvement—together.
+      </p>
+      <Button href="/contact" label="Start your project" variant="hero" class="mt-10 w-max rainbow-sparkle-btn" />
+    </div>
+  </div>
+</section> 
