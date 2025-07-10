@@ -12,7 +12,7 @@
 - [ ] Enable branch protection for `main` (optional for solo projects)
   - Prevents accidental force-pushes or direct commits
 - [ ] Regularly update dependencies (`npm update` or `pnpm update`)
-- [ ] Keep README.md and documentation up to date
+- [x] Keep README.md and documentation up to date
 - [ ] Back up local changes by pushing to GitHub regularly
 
 ## CI/CD Best Practices & Workflows

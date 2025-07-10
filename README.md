@@ -113,3 +113,24 @@ All layout files (`src/layouts/*.astro`) now use a shared `site-body` class on t
 This replaces previous inline body styles (e.g., `bg-white`, `text-neutral-900`) and ensures consistent theming across all pages. To update the site’s look, simply adjust the `.site-body` class in your global CSS.
 
 ---
+
+## 🆕 Recent Updates
+
+- **Hero Section Polish:**
+  - Concise heading and improved CTA.
+  - Hero button now supports an inline icon (see Button.astro usage below).
+  - Animated, morphing avatar blob with pulsing rainbow gradient and slow rotation.
+- **Icon Usage:**
+  - Uses [Heroicons](https://heroicons.com/) SVGs inline via a named slot in Button.astro.
+  - Example usage:
+    ```astro
+    <Button label="Get in touch">
+      <svg slot="icon" ...>...</svg>
+    </Button>
+    ```
+  - See `src/components/ui/Button.astro` for details.
+- **About/Header/Styles:**
+  - About and Header sections updated for layout and style consistency.
+  - New and updated utility classes in `src/styles/global.css`.
+
+---
