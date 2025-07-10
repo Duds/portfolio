@@ -2,11 +2,12 @@
 export interface Props {
   href?: string;
   label: string;
-  variant?: 'primary' | 'secondary' | 'hero';
+  variant?: 'primary' | 'secondary' | 'hero' | 'nav';
   class?: string;
 }
 
 const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro.props;
+const navSparkleData = variant === 'nav' ? `sparkle-${Math.random().toString(36).slice(2, 10)}` : undefined;
 ---
 
 <a
@@ -15,19 +16,22 @@ const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro
     ${variant === 'primary' ? 'bg-[#262626] text-[#f2f2f2]' : ''}
     ${variant === 'secondary' ? 'bg-[#d9d8d7] glass border-2 border-[#262626] text-[#262626] shadow-sm' : ''}
     ${variant === 'hero' ? 'bg-[#262626] text-[#f2f2f2] rainbow-shadow-btn font-semibold text-lg' : ''}
+    ${variant === 'nav' ? 'bg-[#d9d8d7] text-[#262626] border-2 border-[#262626] nav-btn-shadow transition-all duration-200 transform hover:bg-[#262626] hover:text-[#f2f2f2] focus:bg-[#262626] focus:text-[#f2f2f2]' : ''}
     rounded-full px-6 py-2 transition-colors duration-200 inline-block
     ${extraClass}
   `.replace(/\s+/g, ' ').trim()}
+  {...(variant === 'nav' ? { style: 'position:relative;' } : {})}
+  {...(variant === 'nav' ? { 'data-sparkle-btn': navSparkleData } : {})}
 >
   {variant === 'hero' && (
     <Fragment>
       <span class="rainbow-sparkle-layer" style="position:absolute;left:8px;right:8px;bottom:-12px;height:32px;width:auto;z-index:-1;pointer-events:none;display:block;"></span>
       <script is:inline>
-        const btn = document.currentScript.parentElement;
-        const sparkleLayer = btn.querySelector('.rainbow-sparkle-layer');
+        const btnHero = document.currentScript.parentElement;
+        const sparkleLayerHero = btnHero.querySelector('.rainbow-sparkle-layer');
         function randomSparkles() {
-          if (!sparkleLayer) return;
-          sparkleLayer.innerHTML = '';
+          if (!sparkleLayerHero) return;
+          sparkleLayerHero.innerHTML = '';
           const count = 4 + Math.floor(Math.random() * 3);
           for (let i = 0; i < count; i++) {
             const size = 3 + Math.random() * 5;
@@ -45,13 +49,16 @@ const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro
             sparkle.style.opacity = '0';
             sparkle.style.pointerEvents = 'none';
             sparkle.style.animation = `sparkle-fade 2.5s ${delay}s linear forwards`;
-            sparkleLayer.appendChild(sparkle);
+            sparkleLayerHero.appendChild(sparkle);
           }
         }
         randomSparkles();
         setInterval(randomSparkles, 3000);
       </script>
     </Fragment>
+  )}
+  {variant === 'nav' && navSparkleData && (
+    <span data-sparkle={navSparkleData} class="nav-sparkle-layer" style="position:absolute;left:8px;right:8px;bottom:-10px;height:18px;width:auto;z-index:1;pointer-events:none;display:none;"></span>
   )}
   {label}
   <slot />
