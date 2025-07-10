@@ -79,6 +79,32 @@ body {
     box-shadow: 0 6px 16px 0 rgba(38,38,38,0.16);
     transform: translateY(-2px);
   }
+  .nav-shadow {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: -12px;
+    height: 32px;
+    border-radius: 9999px;
+    background: rgba(38,38,38,0.10);
+    filter: blur(2px);
+    pointer-events: none;
+    transform: translateY(-8px);
+    z-index: 10;
+    display: block;
+  }
+  .nav-sparkles {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    bottom: -12px;
+    height: 32px;
+    width: auto;
+    pointer-events: none;
+    display: block;
+    transform: translateY(-5px) translateX(0);
+    z-index: 20;
+  }
   .hero-sparkles {
     position: absolute;
     left: 8px;
