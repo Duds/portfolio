@@ -4,9 +4,10 @@ export interface Props {
   label: string;
   variant?: 'primary' | 'secondary' | 'hero' | 'nav';
   class?: string;
+  icon?: any; // Optional icon component
 }
 
-const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro.props;
+const { href = '#', label, variant = 'primary', class: extraClass = '', icon } = Astro.props;
 ---
 
 {variant === 'hero' ? (
@@ -19,6 +20,7 @@ const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro
     >
       {label}
       <slot />
+      <slot name="icon" />
     </a>
     <script is:inline>
       const heroWrapper = document.currentScript.parentElement;
@@ -120,5 +122,6 @@ const { href = '#', label, variant = 'primary', class: extraClass = '' } = Astro
   >
     {label}
     <slot />
+    {icon && <span class="inline-block align-middle ml-2">{icon}</span>}
   </a>
 )}
