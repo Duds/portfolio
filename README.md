@@ -1,5 +1,17 @@
 # Dale Rogers Portfolio — Simplified Astro Build
 
+## Status Badges
+
+<!-- Badges will appear here after CI/CD is set up -->
+
+---
+
+## Project TODO
+
+See [TODO.md](./TODO.md) for a checklist of GitHub and CI/CD best practices, and ongoing project tasks.
+
+---
+
 This is a minimal, content-first personal portfolio built with [Astro](https://astro.build), using a clear directory structure and minimal dependencies. It prioritises simplicity, hardcoded content, and extensibility over framework abstraction.
 
 ---
